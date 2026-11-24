@@ -79,11 +79,11 @@ reason network
 끝나면 `Join the Reason Network: <링크>`가 나온다. 이 링크는 비밀번호처럼 남에게 보여 주지 않는다.
 
 ### 5단계. 점검
-`reason-network` 명령은 4단계의 `reason network`가 **성공한 뒤에** 생긴다. VS Code를 완전히 껐다 켠 뒤 새 터미널에서:
+네트워크 엔진(`reason-network.exe`)은 `~\.reason\bin`에 설치되고 PATH에는 없다. 그래서 명령은 항상 `reason network <하위 명령>` 형태로 쓴다. 4단계가 성공한 뒤 새 터미널에서:
 ```powershell
-reason-network doctor
+reason network doctor
 ```
-데몬, 팀 연결, Claude Code·Codex 배선이 OK인지 본다. 명령이 없다고 나오면 4단계가 아직 안 끝난 것이다. `reason help all` 화면을 보고 network 관련 명령을 확인한다.
+`daemon running`, `Claude Code: wired up`, `Codex: wired up`에 체크가 붙으면 된다. 명령이 없다고 나오면 4단계가 아직 안 끝난 것이다.
 
 ### 6단계. PC 전체에 설치 (대회 폴더에서도 쓰기)
 ai-research 폴더 터미널에서:
@@ -125,8 +125,8 @@ mkdir $HOME\OneDrive\Desktop\Yant\contest-1125
 ## 문제 생겼을 때
 | 증상 | 해결 |
 |------|------|
-| Claude가 Codex 세션을 못 찾음 | Codex 창이 켜져 있는지 확인. `reason-network who`로 세션 목록 확인 |
-| Codex가 메시지를 안 받음 | Codex에서 `/hooks` → Trust all. 그래도 안 되면 `reason-network doctor` |
+| Claude가 Codex 세션을 못 찾음 | Codex 창이 켜져 있는지 확인. `reason network who`로 세션 목록 확인 |
+| Codex가 메시지를 안 받음 | Codex에서 `/hooks` → Trust all. 그래도 안 되면 `reason network doctor` |
 | Reason Network 자체가 안 됨 | 대체 경로: Claude가 `codex exec -s read-only "요청"`으로 한 번씩 묻는다 (`/xcheck`에 들어 있음) |
 | `/mcp`에서 crew가 failed | `python orchestra\crew_mcp.py --check`. `python`이 안 되면 `.mcp.json`의 `"python"`을 `"py"`로 |
 | `[Qwen 연결 실패]` | Ollama 앱(트레이 아이콘) 켜기 |
@@ -141,5 +141,5 @@ mkdir $HOME\OneDrive\Desktop\Yant\contest-1125
 
 ## 결과 요약
 - 2026-11-24: `crew_mcp.py`를 클라우드에서 가짜 Ollama 서버로 시험. 사용자 PC(Windows)에서 `--check` 통과(qwen3.5:9b 응답 확인), Claude Code `/mcp`에서 crew 연결 확인.
-- 2026-11-25: Reason Network 구성은 책(기준 Reason Network 0.12.17, Codex 0.167.0, Claude Code 2.1.319) 내용을 따랐고, 사용자 PC에서는 아직 시험 전이다.
+- 2026-11-25: 사용자 PC(Windows)에 Reason 0.2.801 + reason-network 0.12.17 설치, `reason network doctor` 전 항목 통과(daemon, Claude Code·Codex wired up). Codex 0.172.0. 두 에이전트 메시지 왕복(7단계)은 시험 중.
 - 기본값: `QWEN_MODEL=qwen3.5:9b`, `QWEN_CTX=16384`, `temperature=0.2`, `seed=42`.
