@@ -66,16 +66,24 @@ codex login            # 로그인 안 했을 때만. ChatGPT 계정
 ```powershell
 irm https://reasonmachines.com/network/install.ps1 | iex
 ```
-- 브라우저가 열리면 Reason 계정(무료, Google·GitHub 등)으로 로그인하고 **네트워크를 새로 만든다.** 끝나면 `Join the Reason Network: <링크>`가 나온다. 이 링크는 비밀번호처럼 남에게 보여 주지 않는다.
-- 로그인 없이 쓰려면 설치 뒤 `reason-network init contest --as watchman`을 실행한다.
-- 설치(setup)는 Claude Code와 Codex 설정 파일에 MCP 서버와 훅을 자동으로 넣는다. 바꾸는 파일은 백업한다.
+이 스크립트는 두 가지를 한다.
+1. `reason` 프로그램 설치 (Reason 전체 도구. `reason`만 치면 "Reason is ready"가 나온다)
+2. 이어서 `reason network` 실행: 브라우저에서 Reason 계정(무료, Google·GitHub 등)으로 로그인하고 네트워크를 새로 만든 뒤, 네트워크 엔진 `reason-network`를 받아 Claude Code·Codex 설정에 MCP 서버와 훅을 넣는다.
+
+2번이 실패했으면(예: EPERM 오류) **새 터미널**에서 아래를 한 줄씩 실행한다. 설치 직후의 터미널은 `reason` 명령을 모른다.
+```powershell
+Get-Process reason* -ErrorAction SilentlyContinue | Stop-Process
+Remove-Item $HOME\.reason\network-sign-in.lock* -ErrorAction SilentlyContinue
+reason network
+```
+끝나면 `Join the Reason Network: <링크>`가 나온다. 이 링크는 비밀번호처럼 남에게 보여 주지 않는다.
 
 ### 5단계. 점검
-VS Code를 완전히 껐다 켠 뒤 새 터미널에서:
+`reason-network` 명령은 4단계의 `reason network`가 **성공한 뒤에** 생긴다. VS Code를 완전히 껐다 켠 뒤 새 터미널에서:
 ```powershell
 reason-network doctor
 ```
-데몬, 팀 연결, Claude Code·Codex 배선이 OK인지 본다.
+데몬, 팀 연결, Claude Code·Codex 배선이 OK인지 본다. 명령이 없다고 나오면 4단계가 아직 안 끝난 것이다. `reason help all` 화면을 보고 network 관련 명령을 확인한다.
 
 ### 6단계. PC 전체에 설치 (대회 폴더에서도 쓰기)
 ai-research 폴더 터미널에서:
