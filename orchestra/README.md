@@ -133,6 +133,7 @@ mkdir $HOME\OneDrive\Desktop\Yant\contest-1125
 | Qwen이 너무 느림 | `.mcp.json`의 `QWEN_CTX`를 `8192`로 |
 | GPT "usage limit" | Codex에서 `/status`로 다시 차는 시각 확인. 그동안 Claude 혼자 진행, 제출 전 검토만 Codex에게 |
 | 작업 중 MCP가 끊김 | Claude에게 "MCP 없이 계속해". `/mcp`에서 Reconnect |
+| VS Code 터미널의 Codex 화면에 글자가 안 쳐짐 | Codex는 VS Code 밖의 PowerShell(또는 Windows Terminal) 창에서 contest 폴더로 `cd` 한 뒤 `codex`로 켠다. 같은 PC라 Reason Network 연결은 똑같이 된다 |
 | `ollama` 명령을 못 찾음 | VS Code를 껐다 켜기. 우리 구성은 Ollama 앱에 직접 연결하므로 작업에는 지장 없음 |
 
 ## 이전 버전과 달라진 점 (2026-11-25)
