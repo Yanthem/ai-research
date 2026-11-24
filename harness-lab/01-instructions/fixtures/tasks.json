@@ -1,0 +1,7 @@
+[
+  {"id": "T1", "name": "논문 노트 추가", "touched": ["papers/2510.01234.md"], "needs": ["papers"]},
+  {"id": "T2", "name": "새 실험 스크립트 작성", "touched": ["reason-network/run_relay.py"], "needs": ["python", "api-cost"]},
+  {"id": "T3", "name": "실험 결과 README 갱신", "touched": ["reason-network/README.md"], "needs": ["experiments"]},
+  {"id": "T4", "name": "루트 README 오타 수정", "touched": ["README.md"], "needs": []},
+  {"id": "T5", "name": "기존 스크립트 리팩터", "touched": ["reason-network/measure_tokens.py"], "needs": ["python"]}
+]
