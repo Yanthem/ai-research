@@ -1,0 +1,15 @@
+{
+  "enabledMcpjsonServers": ["crew", "codex"],
+  "permissions": {
+    "allow": [
+      "mcp__crew__qwen",
+      "mcp__crew__qwen_git",
+      "mcp__crew__gpt",
+      "mcp__codex__codex",
+      "mcp__codex__codex-reply",
+      "Read(.crew/**)",
+      "Edit(.crew/**)",
+      "Write(.crew/**)"
+    ]
+  }
+}

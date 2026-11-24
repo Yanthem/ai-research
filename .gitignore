@@ -5,3 +5,6 @@ __pycache__/
 data/
 outputs/
 .claude/settings.local.json
+
+# 세 AI가 공유하는 작업 컨텍스트 (orchestra/README.md 참고)
+.crew/
