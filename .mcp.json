@@ -7,10 +7,6 @@
         "QWEN_MODEL": "qwen3.5:9b",
         "QWEN_CTX": "16384"
       }
-    },
-    "codex": {
-      "command": "cmd",
-      "args": ["/c", "codex", "mcp-server"]
     }
   }
 }

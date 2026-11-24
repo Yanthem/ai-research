@@ -1,12 +1,15 @@
 {
-  "enabledMcpjsonServers": ["crew", "codex"],
+  "enabledMcpjsonServers": ["crew"],
   "permissions": {
     "allow": [
       "mcp__crew__qwen",
       "mcp__crew__qwen_git",
       "mcp__crew__gpt",
-      "mcp__codex__codex",
-      "mcp__codex__codex-reply",
+      "mcp__reason-network__list_team",
+      "mcp__reason-network__send_message",
+      "mcp__reason-network__message_status",
+      "mcp__reason-network__check_inbox",
+      "Bash(codex exec:*)",
       "Read(.crew/**)",
       "Edit(.crew/**)",
       "Write(.crew/**)"
