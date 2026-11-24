@@ -2,25 +2,12 @@
 description: Analyze code for performance issues and suggest optimizations
 ---
 
-# Code Optimization
+Review $ARGUMENTS (or the code in context if empty) for these issues, most important first:
 
-Review the provided code for the following issues in order of priority:
+1. Performance bottlenecks: O(n²) operations, inefficient loops
+2. Memory: unreleased resources, large objects held too long
+3. Better algorithms or data structures
+4. Caching: repeated computations or repeated API calls
+5. Concurrency: race conditions, blocking calls
 
-1. **Performance bottlenecks** - identify O(n²) operations, inefficient loops
-2. **Memory leaks** - find unreleased resources, circular references
-3. **Algorithm improvements** - suggest better algorithms or data structures
-4. **Caching opportunities** - identify repeated computations
-5. **Concurrency issues** - find race conditions or threading problems
-
-Format your response with:
-- Issue severity (Critical/High/Medium/Low)
-- Location in code
-- Explanation
-- Recommended fix with code example
-
----
-**Last Updated**: August 4, 2026
-**Claude Code Version**: 2.1.220
-**Sources**:
-- https://code.claude.com/docs/en/commands
-**Compatible Models**: Claude Fable 5.2, Claude Fable 5.1, Claude Fable 5, Claude Opus 5.5, Claude Opus 5, Claude Sonnet 5.5, Claude Sonnet 5, Claude Sonnet 4.6, Claude Opus 4.8, Claude Haiku 5.5, Claude Haiku 4.5
+For each issue give severity (Critical/High/Medium/Low), location (`file:line`), why it is slow, and a fix with a code example.
