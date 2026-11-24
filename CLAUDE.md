@@ -43,3 +43,8 @@
 | `pip install -r requirements.txt` | 의존성 설치 |
 | `ruff check . && ruff format --check .` | 린트/포맷 확인 |
 | `python <주제>/<스크립트>.py --help` | 실험 스크립트 사용법 확인 |
+
+## 멀티 AI 팀 구성 (orchestra/)
+- 역할 분담과 운영 규칙: @orchestra/CLAUDE.crew.md
+- 커맨드: `/team-plan`, `/xcheck`, `/qcheck`, `/sync` / 서브에이전트: `qwen-worker`, `gpt-crosscheck`
+- 설치와 하루 작업 흐름: `orchestra/README.md`

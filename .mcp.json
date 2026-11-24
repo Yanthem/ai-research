@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "crew": {
+      "command": "python",
+      "args": ["orchestra/crew_mcp.py"],
+      "env": {
+        "QWEN_MODEL": "qwen3.5:9b",
+        "QWEN_CTX": "16384"
+      }
+    },
+    "codex": {
+      "command": "cmd",
+      "args": ["/c", "codex", "mcp-server"]
+    }
+  }
+}
