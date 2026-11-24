@@ -24,7 +24,7 @@ Claude Code 하나를 "운영자(operator)"로 두고, 그 안에서 GPT와 로�
   - `qwen-worker`: 반복 작업을 Qwen에게 나눠 주고 결과만 짧게 보고
   - `gpt-crosscheck`: GPT에게 독립 검토를 받아 Claude 의견과 비교
 - **커맨드**: `/이름`으로 부르는 미리 써 둔 지시문. `/team-plan`, `/xcheck`, `/qcheck`, `/sync`
-- **공유 컨텍스트**: `.crew/CONTEXT.md`. 과제, 계획, 결정을 적어 두는 공용 메모. GPT에게 보낼 때 자동으로 같이 간다.
+- **공유 컨텍스트**: `.crew/CONTEXT.md`. 과제, 계획, 결정을 적어 두는 공용 메모. GPT에게 보낼 때 자동으로 같이 간다. 미리 만들 필요 없다. 처음 `/team-plan`을 실행하면 Claude가 만든다. `.gitignore`에 들어 있어 커밋되지 않는다.
 
 ## 파일 구성
 | 파일 | 하는 일 |
