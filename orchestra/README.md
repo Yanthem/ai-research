@@ -97,7 +97,7 @@ powershell -ExecutionPolicy Bypass -File orchestra\install_user.ps1
 
 | 시점 | 내가 입력하는 것 | 누가 일하나 |
 |------|------------------|-------------|
-| 시작 (5분) | Ollama 앱 켜기 → VS Code에서 대회 폴더 열기 → `claude` → `/mcp` | - |
+| 시작 (5분) | Ollama 앱 켜기 → VS Code에서 대회 폴더 열기 → `claude` → `/mcp` → `/sync` (git 폴더일 때) | Qwen이 최신 상태 확인 |
 | 문제 받음 | `/team-plan 문제.md` (또는 문제 내용 붙여넣기) | Qwen이 요구사항 추출 → Claude 계획 → GPT 검토 → Claude 확정 |
 | 계획 확인 | 계획을 읽고 "좋아, 1단계부터" | 나 |
 | 구현 | 단계별로 "1단계 진행해" | Claude가 코드 작성 |
@@ -106,7 +106,8 @@ powershell -ExecutionPolicy Bypass -File orchestra\install_user.ps1
 | 팀원이 push했을 때, 1~2시간마다 | `/sync` | Qwen이 pull 후 변경 요약 |
 | 막혔을 때 (같은 버그 2번 실패) | `/xcheck 이 에러가 안 고쳐짐: ...` | GPT가 다른 시각으로 원인 제시 |
 | 핵심 로직 완성 후, 제출 30분 전 | `/xcheck` | GPT가 놓친 요구사항·위험 점검 |
-| 대화가 길어지면 | `/compact` | Claude 대화 압축. 계획은 CONTEXT.md에 있으니 잃지 않는다 |
+| 계획·결정이 바뀔 때마다 | "CONTEXT.md 갱신해" | Claude가 공유 메모를 고친다. 이게 낡으면 GPT가 옛 계획을 검토한다 |
+| `/compact` 직전 | "CONTEXT.md 최신인지 확인하고 갱신해" → `/compact` | 대화를 압축해도 계획은 CONTEXT.md에 남는다 |
 
 ### 역할을 고르는 기준 한 줄
 - 생각이 필요하면 Claude, 두 번째 의견이 필요하면 GPT, 읽고 세고 요약하고 실행만 하면 되면 Qwen.
@@ -125,6 +126,9 @@ powershell -ExecutionPolicy Bypass -File orchestra\install_user.ps1
 | `[Qwen 연결 실패]` | Ollama 앱(트레이 아이콘)을 켜거나 `ollama serve` |
 | Qwen이 너무 느림 | `.mcp.json`의 `QWEN_CTX`를 `8192`로 줄인다 (8GB VRAM 기준) |
 | codex가 failed | `codex --version`, `codex login` 확인. 안 되면 B 방식(API 키)으로 `crew`의 `gpt` 도구 사용 |
+| GPT 오류 "model requires a newer version of Codex" | Claude Code를 `/exit` → `npm install -g @openai/codex@latest` → `claude` 다시 실행 |
+| GPT 오류 "usage limit" (한도 초과) | Codex에서 `/status`로 다시 차는 시각 확인. 그동안은 Claude 혼자 진행하고, 제출 전 검토만 GPT에게 |
+| 작업 중 crew나 codex가 끊김 | Claude에게 "MCP 없이 계속해"라고 하면 Claude가 직접 처리한다. `/mcp`에서 해당 서버를 골라 Reconnect |
 | 매번 허용 여부를 물음 | 물을 때 "Yes, don't ask again" 선택. `qwen_run`은 명령을 실행하므로 일부러 묻게 두었다 |
 | 다른 폴더에서 git 작업이 엉뚱한 곳에서 됨 | 그 폴더에서 `claude`를 켰는지 확인. 필요하면 MCP 등록 시 `-e CREW_ROOT=폴더경로` 추가 |
 
