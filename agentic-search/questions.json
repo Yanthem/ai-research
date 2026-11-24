@@ -1,0 +1,153 @@
+{
+  "_note": "코퍼스를 보기 전에 학습자 관점에서 먼저 쓴 질문들(2026-11-24). gold 파일은 질문 작성 뒤 rg로 확인해 채운다. q03은 질문 전제가 틀렸다: Claude Code에서 name은 선택, description은 권장(howto/03-skills/README.md 147-148행).",
+  "questions": [
+    {
+      "id": "q01",
+      "q": "훅(hook)에서 종료 코드 2를 반환하면 어떻게 되나?",
+      "keywords": [
+        "종료 코드 2",
+        "exit 2",
+        "exit code 2"
+      ],
+      "gold_files": [
+        "howto/06-hooks/README.md"
+      ],
+      "answer_regex": "종료 코드 2|exit\\(2\\)|exit 2"
+    },
+    {
+      "id": "q02",
+      "q": "서브에이전트 정의 파일은 어느 폴더에 두나?",
+      "keywords": [
+        ".claude/agents"
+      ],
+      "gold_files": [
+        "howto/04-subagents/README.md"
+      ],
+      "answer_regex": "\\.claude/agents"
+    },
+    {
+      "id": "q03",
+      "q": "스킬의 SKILL.md 프론트매터에 반드시 필요한 필드는?",
+      "keywords": [
+        "name",
+        "description",
+        "SKILL.md"
+      ],
+      "gold_files": [
+        "howto/03-skills/README.md"
+      ],
+      "answer_regex": "\\*\\*name\\*\\* \\(선택\\)|\\*\\*description\\*\\* \\(권장\\)"
+    },
+    {
+      "id": "q04",
+      "q": "CLAUDE.md에서 다른 파일을 가져오는(import) 문법은?",
+      "keywords": [
+        "@",
+        "import",
+        "임포트"
+      ],
+      "gold_files": [
+        "howto/02-memory/README.md"
+      ],
+      "answer_regex": "@path/to/file|@README\\.md|@~/"
+    },
+    {
+      "id": "q05",
+      "q": "체크포인트로 되돌리려면 어떤 단축키나 명령을 쓰나?",
+      "keywords": [
+        "/rewind",
+        "Esc",
+        "되감기"
+      ],
+      "gold_files": [
+        "howto/08-checkpoints/README.md"
+      ],
+      "answer_regex": "/rewind"
+    },
+    {
+      "id": "q06",
+      "q": "MCP 서버를 프로젝트 범위로 추가하면 설정이 저장되는 파일 이름은?",
+      "keywords": [
+        ".mcp.json"
+      ],
+      "gold_files": [
+        "howto/05-mcp/README.md"
+      ],
+      "answer_regex": "\\.mcp\\.json"
+    },
+    {
+      "id": "q07",
+      "q": "플러그인 매니페스트 파일 이름은?",
+      "keywords": [
+        "plugin.json"
+      ],
+      "gold_files": [
+        "howto/07-plugins/README.md"
+      ],
+      "answer_regex": "plugin\\.json"
+    },
+    {
+      "id": "q08",
+      "q": "Claude Code를 비대화형(헤드리스)으로 실행하는 CLI 플래그는?",
+      "keywords": [
+        "-p",
+        "--print"
+      ],
+      "gold_files": [
+        "howto/10-cli/README.md"
+      ],
+      "answer_regex": "(^|[\\s`])(-p|--print)\\b"
+    },
+    {
+      "id": "q09",
+      "q": "여러 세션에 걸쳐 작업을 이어가려면 하네스에 어떤 기록을 남기라고 하나?",
+      "keywords": [
+        "progress",
+        "진행",
+        "세션"
+      ],
+      "gold_files": [
+        "harness/lectures/lecture-05-why-long-running-tasks-lose-continuity/index.md",
+        "harness/projects/project-03-multi-session-continuity/index.md"
+      ],
+      "answer_regex": "PROGRESS\\.md|진행 파일"
+    },
+    {
+      "id": "q10",
+      "q": "루프 엔지니어링에서 maker와 checker는 각각 무슨 일을 하나?",
+      "keywords": [
+        "maker",
+        "checker"
+      ],
+      "gold_files": [
+        "harness/lectures/lecture-13-loop-engineering/index.md"
+      ],
+      "answer_regex": "메이커|체커|maker|checker"
+    },
+    {
+      "id": "q11",
+      "q": "계획 모드(plan mode)로 들어가는 방법은?",
+      "keywords": [
+        "Shift+Tab",
+        "plan mode",
+        "계획 모드"
+      ],
+      "gold_files": [
+        "howto/09-advanced-features/README.md"
+      ],
+      "answer_regex": "Shift\\+Tab"
+    },
+    {
+      "id": "q12",
+      "q": "슬래시 커맨드 파일에서 사용자가 넘긴 인자를 받는 변수 이름은?",
+      "keywords": [
+        "$ARGUMENTS"
+      ],
+      "gold_files": [
+        "howto/01-slash-commands/README.md",
+        "howto/03-skills/README.md"
+      ],
+      "answer_regex": "\\$ARGUMENTS"
+    }
+  ]
+}
