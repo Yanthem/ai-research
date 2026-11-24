@@ -46,5 +46,5 @@
 
 ## 멀티 AI 팀 구성 (orchestra/)
 - 역할 분담과 운영 규칙: @orchestra/CLAUDE.crew.md
-- 커맨드: `/team-plan`, `/xcheck`, `/qcheck`, `/sync` / 서브에이전트: `qwen-worker`, `gpt-crosscheck`
+- Codex(GPT)와는 Reason Network로 대화한다. 커맨드: `/team-plan`, `/xcheck`, `/qcheck`, `/sync` / 서브에이전트: `qwen-worker`
 - 설치와 하루 작업 흐름: `orchestra/README.md`
